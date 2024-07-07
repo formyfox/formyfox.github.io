@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>For My Princess</title>
+    <link rel="icon" href="fox.png" type="image/x-icon">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="birthday-card">
+    <!-- Inner -->
+    <div class="cover-inner">
+        <img src="bg.png" width="100%">
+        <audio id="birthdayAudio" controls>
+            <source src="the message.mp3" type="audio/mpeg">
+        </audio>
+    </div>
+
+    <!-- Outer -->
+    <div class="cover-outer">
+        <img src="cover.png" width="100%">
+    </div>
+
+    <!-- Text -->
+    <div class="text">
+        <p class="title">
+            Happy Birthday! <br> My Isabella
+        </p>
+        <p>
+            Happy Birthday baby! I'm so so happy and grateful that you were
+            born on this special day because I got the chance to meet you and even
+            love you. I'm sorry if this is the only thing I can do for you, even
+            though I want to give you a gift and everything. Can I just gift
+            myself to you, baby? I'm really so grateful that you exist. I hope
+            you're always happy, loved and healthy. You're the sweetest and the best thing
+            that has happened in my life. You're so beautiful and precious.
+            You're a treasure, my princess. I hope that today is as special
+            as you are to me and that all your birthday wishes come true except dying.
+        </p>
+        <p>Thank you and I love you so muchhhh!</p>
+    </div>
+</div>
+
+<script>
+    document.querySelector('.birthday-card').addEventListener('mouseover', function() {
+        var audio = document.getElementById('birthdayAudio');
+        audio.play();
+    });
+
+    document.querySelector('.birthday-card').addEventListener('mouseout', function() {
+        var audio = document.getElementById('birthdayAudio');
+        audio.pause();
+        audio.currentTime = 0; // Reset the audio to the beginning
+    });
+</script>
+</body>
+</html>
