@@ -6,53 +6,93 @@
     <title>For My Princess</title>
     <link rel="icon" href="fox.png" type="image/x-icon">
     <link rel="stylesheet" href="style.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 </head>
-<body>
-<div class="birthday-card">
-    <!-- Inner -->
-    <div class="cover-inner">
-        <img src="bg.png" width="100%">
-        <audio id="birthdayAudio" controls>
-            <source src="the message.mp3" type="audio/mpeg">
-        </audio>
+<body onload="myFunction()">
+    <div id="loader">
+        <div class="mail">
+            <img src="mail.gif" alt="an illustration of a mail" />
+            <h1> Special mail delivery for you, my princess!! </h1>
+        </div>
     </div>
-
-    <!-- Outer -->
-    <div class="cover-outer">
-        <img src="cover.png" width="100%">
+    
+    <div id="myDiv" class="animate-bottom" style="display: none;">
+        <div class="container">
+            <div class="envelope-wrapper">
+                <div class="envelope">
+                    <div class="front"></div>
+                    <div class="letter">
+                        <div class="text">
+                            <strong> Hey baby! </strong>
+                            <p>
+                                Thank you, my love, for being so patient. 
+                                I’m sorry it took me so long. 
+                                I have so much to share with you, 
+                                and I’ve put all of this together just for you. 
+                                (Please click the button below.)
+                            </p>
+                            <img src="mwah.gif" alt="a kiss for you" />
+                        </div>
+                        <div class="hearts">
+                            <div class="one"></div>
+                            <div class="two"></div>
+                            <div class="three"></div>
+                            <div class="four"></div>
+                            <div class="five"></div>
+                        </div>
+                    </div>
+                </div>
+                <div id="heart" class="heart"></div>
+                <button id="clickButton" class="click-button" style="display: none;" onclick="redirect()">
+                    <div class="left"></div>
+                    <div class="right"></div>
+                    <div class="content">
+                        <span> Click Here </span> 
+                    </div>
+                </button>
+            </div>
+        </div>
     </div>
+    <script>
+        function myFunction() {
+            setTimeout(showPage, 3000);
+        }
 
-    <!-- Text -->
-    <div class="text">
-        <p class="title">
-            Happy Birthday! <br> My Isabella
-        </p>
-        <p>
-            Happy Birthday baby! I'm so so happy and grateful that you were
-            born on this special day because I got the chance to meet you and even
-            love you. I'm sorry if this is the only thing I can do for you, even
-            though I want to give you a gift and everything. Can I just gift
-            myself to you, baby? I'm really so grateful that you exist. I hope
-            you're always happy, loved and healthy. You're the sweetest and the best thing
-            that has happened in my life. You're so beautiful and precious.
-            You're a treasure, my princess. I hope that today is as special
-            as you are to me and that all your birthday wishes come true except dying.
-        </p>
-        <p>Thank you and I love you so muchhhh!</p>
-    </div>
-</div>
+        function showPage() {
+            document.getElementById("loader").style.display = "none";
+            document.getElementById("myDiv").style.display = "block";
+        }
 
-<script>
-    document.querySelector('.birthday-card').addEventListener('mouseover', function() {
-        var audio = document.getElementById('birthdayAudio');
-        audio.play();
-    });
+        window.addEventListener("load", () => {
+            const loader = document.querySelector("#loader");
+            loader.classList.add("loader--hidden");
 
-    document.querySelector('.birthday-card').addEventListener('mouseout', function() {
-        var audio = document.getElementById('birthdayAudio');
-        audio.pause();
-        audio.currentTime = 0; // Reset the audio to the beginning
-    });
-</script>
+            loader.addEventListener("transitionend", () => {
+                document.body.removeChild(loader);
+            });
+        });
+
+        const envelope = document.querySelector('.envelope-wrapper');
+        const heart = document.querySelector('#heart');
+        const clickButton = document.querySelector('#clickButton');
+
+        envelope.addEventListener('click', () => {
+            envelope.classList.toggle('flap');
+
+            if (!envelope.classList.contains('flap')) {
+                clickButton.style.display = 'none';
+            }
+        });
+
+        heart.addEventListener('click', () => {
+            setTimeout(() => {
+                clickButton.style.display = 'block';
+            }, 3000); 
+        });
+
+        function redirect() {
+            window.location.href = 'letter.html'; 
+       }
+    </script>
 </body>
 </html>
