@@ -6,11 +6,19 @@
     <title>For My Princess</title>
     <link rel="icon" href="fox.png" type="image/x-icon">
     <link rel="stylesheet" href="letter-style.css">
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 </head>
 
-<body>
-    <div class="main">
+<body onload="myFunction()">
+    <div  id="loader" class="container">
+        <div class="preloader">
+           <span></span>
+           <span></span>
+           <span></span>
+        </div>
+        <div class="shadow"></div>
+     </div>
+
+    <div id="myDiv" class="main" style="display: none;">
         <div class="box">
             <div class="top-border">
                 <h1>My dear princess</h1>
@@ -89,4 +97,24 @@
         </div>
     </div>
 </body>
+
+<script>
+      function myFunction() {
+            setTimeout(showPage, 2000);
+        }
+
+        function showPage() {
+            document.getElementById("loader").style.display = "none";
+            document.getElementById("myDiv").style.display = "block";
+        }
+
+        window.addEventListener("load", () => {
+            const loader = document.querySelector("#loader");
+            loader.classList.add("loader--hidden");
+
+            loader.addEventListener("transitionend", () => {
+                document.body.removeChild(loader);
+            });
+        });
+</script>
 </html>
