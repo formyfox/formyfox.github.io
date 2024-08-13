@@ -7,9 +7,18 @@
         <link rel="icon" href="fox.png" type="image/x-icon">
         <link rel="stylesheet" href="question-style.css">
     </head>
-    <body>
-        <div class="container">
-            <div >
+        <body onload="myFunction()">
+            <div  id="loader" class="loadcontainer">
+                <div class="preloader">
+                   <span></span>
+                   <span></span>
+                   <span></span>
+                </div>
+                <div class="shadow"></div>
+             </div>
+
+        <div id="myDiv" class="container" style="display: none;">
+            <div>
                 <h1 class = "header_text">Will you be my girlfriend?</h1>
             </div>
             <div class="gif_container">
@@ -33,5 +42,25 @@
             </div>
         </div>
        
-    </body> 
+    </body>
+    
+    <script>
+        function myFunction() {
+              setTimeout(showPage, 3000);
+          }
+  
+          function showPage() {
+              document.getElementById("loader").style.display = "none";
+              document.getElementById("myDiv").style.display = "block";
+          }
+  
+          window.addEventListener("load", () => {
+              const loader = document.querySelector("#loader");
+              loader.classList.add("loader--hidden");
+  
+              loader.addEventListener("transitionend", () => {
+                  document.body.removeChild(loader);
+              });
+          });
+  </script>
 </html>
