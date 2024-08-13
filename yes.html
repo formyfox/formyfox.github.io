@@ -15,7 +15,23 @@
             <div class="gif_container">
                 <img src="https://media.tenor.com/Rf342Plq9QgAAAAi/peach-goma-love-smooch-kiss.gif" alt="Cute animated illustration">
             </div>
+            <audio id="yesAudio">
+                <source src="the yes.mp3" type="audio/mpeg">
+            </audio>
         </div>
        
     </body> 
+
+    <script>
+        
+        document.querySelector('.container').addEventListener('mouseover', function() {
+            var audio = document.getElementById('yesAudio');
+            audio.play();
+        });
+
+        document.querySelector('.container').addEventListener('mouseout', function() {
+            var audio = document.getElementById('yesAudio');
+            audio.pause();
+        });
+    </script>
 </html>
