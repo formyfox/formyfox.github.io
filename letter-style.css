@@ -1,0 +1,131 @@
+body {
+    background-image: url('heartbg.jpg');
+    margin: 0;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.main {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 20px;
+    margin-top: 15px;
+}
+
+.box {
+    
+    --s: 850px;
+    --_p: 0px;
+    border-radius: 10px;
+    padding: calc(.09 * var(--s)) calc(var(--s) / 2 - var(--_p));
+    width: var(--s);
+    aspect-ratio: 1;
+    box-sizing: border-box;
+    border-image: radial-gradient(#f80759 69%, #0000 70%) 84.5% / calc(var(--s) / 2) / 0 var(--_p);
+    clip-path: polygon(
+        calc(-41% - var(--_p)) 0,
+        calc(50%  - var(--_p)) 91%,
+        calc(50%  + var(--_p)) 91%,
+        calc(141% + var(--_p)) 0
+    );
+    transition: .5s;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+    text-align: center;
+}
+
+.box:hover {
+    --_p: calc(var(--s) / 2);
+}
+
+.box .top-border {
+    opacity: 0;
+    transition: opacity .5s ease-in-out;
+    padding: 10px;
+}
+
+.box:hover .top-border {
+    opacity: 1;
+}
+
+.top-border {
+    height: max-content;
+    background-color: #fe246d;
+}
+
+.box p {
+    color: white;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size: 17px;
+    padding-left: 10px;
+    padding-right: 10px;
+    text-align: justify;
+}
+
+.box h1 {
+    color: white;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size: 25px;
+}
+
+button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px 15px; /* Reduce the size */
+    box-shadow: rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
+    background-color: #e8e8e8;
+    border-color: #ffe2e2;
+    border-style: solid;
+    border-width: 3px; /* Reduce the border width */
+    border-radius: 25px; /* Adjust the border-radius */
+    font-size: 15px; /* Reduce font size */
+    cursor: pointer;
+    font-weight: 900;
+    color: rgb(134, 124, 124);
+    font-family: monospace;
+    transition: transform 400ms cubic-bezier(0.68, -0.55, 0.27, 2.5),
+    border-color 400ms ease-in-out, background-color 400ms ease-in-out;
+    word-spacing: -2px;
+    margin: 0 auto; /* Center the button */
+    position: relative; /* Ensure it stays within its container */
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+button:hover {
+    background-color: #eee;
+    transform: scale(105%);
+    animation: movingBorders 3s infinite;
+}
+
+button svg {
+    margin-right: 6px; /* Adjust the spacing between icon and text */
+    fill: rgb(255, 110, 110);
+    transition: opacity 100ms ease-in-out;
+}
+
+.filled {
+    position: absolute;
+    opacity: 0;
+    top: 10px;
+    left: 12px;
+}
+
+button:hover .empty {
+    opacity: 0;
+}
+
+button:hover .filled {
+    opacity: 1;
+    animation: beatingHeart 1.2s infinite;
+}
