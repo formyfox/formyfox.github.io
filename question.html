@@ -42,8 +42,11 @@
                     var yesButton = document.getElementById('yesButton');
                     var currentWidth = yesButton.offsetWidth;
                     var currentHeight = yesButton.offsetHeight;
+                    var currentFontSize = parseInt(window.getComputedStyle(yesButton).fontSize);
+
                     yesButton.style.width = (currentWidth + 10) + 'px';
                     yesButton.style.height = (currentHeight + 10) + 'px';
+                    yesButton.style.fontSize = (currentFontSize + 2) + 'px';  // Increase font size
                 }
             </script> 
         </div>
