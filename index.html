@@ -3,96 +3,310 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>For My Princess</title>
+    <title>Open When... | A Gift For You</title>
     <link rel="icon" href="fox.png" type="image/x-icon">
     <link rel="stylesheet" href="style.css">
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Raleway:wght@300;400;600&display=swap" rel="stylesheet">
+
 </head>
-<body onload="myFunction()">
-    <div id="loader">
-        <div class="mail">
-            <img src="mail.gif" alt="an illustration of a mail" />
-            <h1> Special mail delivery for you, my princess!! </h1>
+<body>
+    <div class="floating-hearts" id="hearts-container"></div>
+    
+    <!-- Birthday Cake Section -->
+    <div id="birthday-section">
+        <div class="birthday-cake">
+            <h2 class="birthday-message">Happy Birthday, My Baby!</h2>
+           <div class="cake">
+    <div class="plate"></div>
+    <div class="layer layer-bottom"></div>
+    <div class="layer layer-middle"></div>
+    <div class="layer layer-top"></div>
+    <div class="icing"></div>
+    <div class="drip drip1"></div>
+    <div class="drip drip2"></div>
+    <div class="drip drip3"></div>
+    <div class="candle">
+        <div class="flame"></div>
+    </div>
+</div>
+            <p class="cake-instruction">Make a wish and blow out the candles!</p>
+            <button class="play-song-btn" id="play-song">
+                <i class="fas fa-music"></i> Play Birthday Song
+            </button>
+            <audio id="birthday-song" src="hbd-song.mp3"></audio>
+            <button class="continue-btn" id="continue-btn">See Your Gift</button>
         </div>
     </div>
     
-    <div id="myDiv" class="animate-bottom" style="display: none;">
-        <div class="container">
-            <div class="envelope-wrapper">
-                <div class="envelope">
-                    <div class="front"></div>
-                    <div class="letter">
-                        <div class="text">
-                            <strong> Hey baby! </strong>
-                            <p>
-                                Thank you, my love, for being so patient. 
-                                I’m sorry it took me so long. 
-                                I have so much to share with you, 
-                                and I’ve put all of this together just for you. 
-                                (Please click the button below.)
-                            </p>
-                            <img src="mwah.gif" alt="a kiss for you" />
-                        </div>
-                        <div class="hearts">
-                            <div class="one"></div>
-                            <div class="two"></div>
-                            <div class="three"></div>
-                            <div class="four"></div>
-                            <div class="five"></div>
-                        </div>
+    <!-- Main Content (Hidden Initially) -->
+    <div class="container" id="main-content">
+        <header>
+            <div class="header-content">
+                <h1>Open When...</h1>
+                <p class="subtitle">Letters for Every Moment Until We're Together</p>
+                <p class="intro-text">
+                    My baby, for your birthday I wanted to give you something special that can bridge the distance between us. 
+                    These letters are for different moments we might experience apart. Open them when you need me most, 
+                    and remember how much I love you.
+                </p>
+            </div>
+        </header>
+        
+        <div class="cards-container">
+            <!-- Card 1 -->
+            <div class="card" onclick="flipCard(this)">
+                <div class="card-front">
+                    <i class="fas fa-heart card-icon"></i>
+                    <h3 class="card-title">Open When... You Miss Me</h3>
+                    <p class="card-instruction">Click to open this letter</p>
+                </div>
+                <div class="card-back">
+                    <div class="message-content">
+                        <p>My wife,</p>
+                        <p>I miss you too baby. I know this distance is hard, and I miss you more than words can say. But please remember that every moment we're apart is just bringing us closer to our next embrace.</p>
+                        <p>Think of all the little things that make us "us" - our inside jokes, the way you laugh, our serious or dumb conversations. I'm thinking of them right now too. Our love isn't measured by the miles between us but by the strength of our connection.</p>
+                        <p>Close your eyes and feel my arms around you. That warmth you feel? That's my love reaching across the distance to hold you close.</p>
+                        <p class="signature">Always yours,<br>Rai</p>
                     </div>
                 </div>
-                <div id="heart" class="heart"></div>
-                <button id="clickButton" class="click-button" style="display: none;" onclick="redirect()">
-                    <div class="left"></div>
-                    <div class="right"></div>
-                    <div class="content">
-                        <span> Click Here </span> 
-                    </div>
-                </button>
             </div>
+            
+            <!-- Card 2 -->
+            <div class="card" onclick="flipCard(this)">
+                <div class="card-front">
+                    <i class="fas fa-laugh card-icon"></i>
+                    <h3 class="card-title">Open When... You Need a Laugh</h3>
+                    <p class="card-instruction">Click to open this letter</p>
+                </div>
+                <div class="card-back">
+                    <div class="message-content">
+                        <p>Hey beautiful,</p>
+                        <p>I know sometimes life gets tough, so I'm here to remind you of all our funny memories—especially when we're playing obbys. Remember that time we played the horse obby and I kept singing "Twerk It Like Miley" every time I pulled you up because you fell? That was one of my favorite moments ever, because you laughed so much that day. </p>
+                        <p>Remember our dumb conversations? Or when you intentionally try to annoy me just because you like seeing me get impatient? I know I'm bad at this baby, but just think about all my dumb moments, baby—I hope those help even a little..</p>
+                        <p>You have the most beautiful laugh in the world. I hope I've brought a little of that sunshine back to your face. I love you so much.</p>
+                        <p class="signature">Your personal dumb comedian,<br>Raine</p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Card 3 -->
+            <div class="card" onclick="flipCard(this)">
+                <div class="card-front">
+                    <i class="fas fa-cloud-sun card-icon"></i>
+                    <h3 class="card-title">Open When... You're Stressed</h3>
+                    <p class="card-instruction">Click to open this letter</p>
+                </div>
+                <div class="card-back">
+                    <div class="message-content">
+                        <p>My baby,</p>
+                        <p>Take a deep breath with me... in… and out. One more time. Whatever’s weighing on you right now, I just want you to know—you’re stronger than you think.</p>
+                        <p>You’ve got this, just like you’ve handled every tough moment before. I believe in you completely, even when you doubt yourself.</p>
+                        <p>I wish I could be there to rub your shoulders, make you some tea, or wrap you in a big blanket burrito hug. But for now, picture me holding your hand, squeezing it gently, reminding you that you’re not alone. I’m always one call away… even though, let’s be honest, we’re always already in a call anyway.</p>
+                        <p class="signature">Always in your corner,<br>baby Rai</p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Card 4 -->
+            <div class="card" onclick="flipCard(this)">
+                <div class="card-front">
+                    <i class="fas fa-star card-icon"></i>
+                    <h3 class="card-title">Open When... You Accomplish Something</h3>
+                    <p class="card-instruction">Click to open this letter</p>
+                </div>
+                <div class="card-back">
+                    <div class="message-content">
+                        <p>My amazing wife,</p>
+                        <p>I knew you could do it! I’m so incredibly proud of you, and I wish I could be there to celebrate with hugs, kisses, and maybe a little victory dance.</p>
+                        <p>You deserve every bit of the happiness and success that’s coming your way. You worked hard, and showed everyone just how smart and capable you are. That’s the incredible person I fell in love with. </p>
+                        <p>Since my baby did so well… go ahead and claim your reward from me. I’m cheering for you from here—loudly, proudly, and with all my love. Congratulations, my love. Always so proud of you.</p>
+                        <p class="signature">Your biggest fan,<br>Lhoraine</p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Card 5 -->
+            <div class="card" onclick="flipCard(this)">
+                <div class="card-front">
+                    <i class="fas fa-moon card-icon"></i>
+                    <h3 class="card-title">Open When... You Can't Sleep</h3>
+                    <p class="card-instruction">Click to open this letter</p>
+                </div>
+                <div class="card-back">
+                    <div class="message-content">
+                        <p>Sweet dreams, my princess,</p>
+                        <p>Go ahead and request a song from me, my baby. You know I love singing for you, especially when it helps you feel calm and safe.</p>
+                        <p>Just close your eyes and imagine us in our cozy apartment, married, with our silly little cats running around. We’re cuddled up in bed, sharing kisses, wrapped in each other’s arms. I’m right there with you.</p>
+                        <p>Picture me beside you now, holding you close. Feel my breathing match yours—slow, steady, peaceful. You’re safe. You’re loved. And soon, we’ll have all those quiet, sleepy nights together soon.</p>
+                        <p class="signature">Counting the nights,<br>Rai</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Card 6 - When You're Sad -->
+            <div class="card" onclick="flipCard(this)">
+                <div class="card-front">
+                    <i class="fas fa-sad-tear card-icon"></i>
+                    <h3 class="card-title">Open When... You're Sad</h3>
+                    <p class="card-instruction">Click to open this letter</p>
+                </div>
+                <div class="card-back">
+                    <div class="message-content">
+                        <p>My precious baby,</p>
+                        <p>I wish I could be there right now to wipe away your tears and pull you into the tightest hug. Whatever is making you feel this way, just know—we’ll get through it together. Always.</p>
+                        <p>It’s okay to feel sad. Let yourself feel it, cry if you need to. But please be gentle with your beautiful eyes and don’t ever forget how deeply loved, cherished, and important you are to me. </p>
+                        <p>You’re never alone, baby. I’m just one message away—and my arms are always wide open for you, even if it’s just in your heart for now. I love you so much. Always. </p>
+                        <p class="signature">Always here for you,<br>your baby</p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Card 7 - When You're Disappointed in Me -->
+            <div class="card" onclick="flipCard(this)">
+                <div class="card-front">
+                    <i class="fas fa-frown card-icon"></i>
+                    <h3 class="card-title">Open When... You're Disappointed in Me</h3>
+                    <p class="card-instruction">Click to open this letter</p>
+                </div>
+                <div class="card-back">
+                    <div class="message-content">
+                        <p>My baby,</p>
+                        <p>I’m so sorry I let you down. I never wanted to hurt you, and knowing I did truly breaks my heart. Please know that disappointing you is the last thing I ever want to do.</p>
+                        <p>Your feelings are completely valid, and I want to understand everything—what I did wrong, how you felt, and how I can make things right. Even when I mess up, my love for you never changes. It’s real, it’s constant, and it’s something I hold close every day. I'll do better, my baby. </p>
+                        <p>Thank you for still being here with me. I’ll do whatever it takes to make things better—because you matter that much to me. I'm sorry again and I love you so much.</p>
+                        <p class="signature">Yours in growth,<br>Lhoraine</p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Card 8 - When You're Happy -->
+            <div class="card" onclick="flipCard(this)">
+                <div class="card-front">
+                    <i class="fas fa-laugh-beam card-icon"></i>
+                    <h3 class="card-title">Open When... You're Happy</h3>
+                    <p class="card-instruction">Click to open this letter</p>
+                </div>
+                <div class="card-back">
+                    <div class="message-content">
+                        <p>My adorable baby,</p>
+                        <p>Your happiness makes my heart soar! I’m happier than anyone when you’re happy. I wish I could be there with you right now—spinning you around, kissing your cheeks, and soaking in your beautiful smile.</p>
+                        <p>Whatever good thing has happened, you absolutely deserve it. Take a moment to really savor this feeling - store it up to remember during harder times.</p>
+                        <p>You being happy is the best gift to my heart. I love you so much, always. .</p>
+                        <p class="signature">Your happy baby,<br>Rai</p>
+                    </div>
+                </div>
+            </div>
+            
+            
+            <!-- Card 9 - When You're Feeling Insecure -->
+            <div class="card" onclick="flipCard(this)">
+                <div class="card-front">
+                    <i class="fas fa-question card-icon"></i>
+                    <h3 class="card-title">Open When... You're Feeling Insecure</h3>
+                    <p class="card-instruction">Click to open this letter</p>
+                </div>
+                <div class="card-back">
+                    <div class="message-content">
+                        <p>My beautiful wife,</p>
+                        <p>Whatever doubts are creeping in, I want you to know this: you are incredible exactly as you are. You’re so beautiful, adorable, sexy, and perfect to me in every way.</p>
+                        <p>If you’re feeling insecure about us, please remember—I choose you every single day, and I’ll keep choosing you, again and again. You’re my person. </p>
+                        <p>I know sometimes it’s hard to see yourself the way I see you. But to me, you are breathtaking. Not just because of how you look, but because of who you are: your heart, your strength, your kindness, your voice, your laughter. All of it makes you shine in a way no one else ever could.</p>
+                        <p> Even on the days you feel less than your best, you are still the most beautiful woman in the whole milky way to me. Nothing could ever change how much I love you, how deeply I appreciate you, or how grateful I am to share this life with you.</p>
+                        <p> I’m here for you always—in your highs, your lows, and every moment in between. I love you more than words can say.</p>
+                        <p class="signature">Your biggest obssesor,<br>Lhoraine</p>
+                    </div>
+                </div>
+            </div>
+            
         </div>
+        
+        <footer>
+            <p>Created with <span class="heart">❤</span> for my incredible wife on her birthday</p>
+            <p>Every letter is a promise that I'm thinking of you, no matter the distance</p>
+        </footer>
     </div>
+
     <script>
-        function myFunction() {
-            setTimeout(showPage, 3000);
+        // Card flipping functionality
+        function flipCard(card) {
+            card.classList.toggle('flipped');
         }
-
-        function showPage() {
-            document.getElementById("loader").style.display = "none";
-            document.getElementById("myDiv").style.display = "block";
-        }
-
-        window.addEventListener("load", () => {
-            const loader = document.querySelector("#loader");
-            loader.classList.add("loader--hidden");
-
-            loader.addEventListener("transitionend", () => {
-                document.body.removeChild(loader);
-            });
-        });
-
-        const envelope = document.querySelector('.envelope-wrapper');
-        const heart = document.querySelector('#heart');
-        const clickButton = document.querySelector('#clickButton');
-
-        envelope.addEventListener('click', () => {
-            envelope.classList.toggle('flap');
-
-            if (!envelope.classList.contains('flap')) {
-                clickButton.style.display = 'none';
+        
+        // Create floating hearts
+        function createHearts() {
+            const container = document.getElementById('hearts-container');
+            const heartCount = 30;
+            
+            for (let i = 0; i < heartCount; i++) {
+                const heart = document.createElement('div');
+                heart.innerHTML = '❤';
+                heart.classList.add('heart-particle');
+                
+                // Random position
+                const leftPos = Math.random() * 100;
+                heart.style.left = `${leftPos}vw`;
+                
+                // Random animation delay and duration
+                const delay = Math.random() * 15;
+                const duration = 5 + Math.random() * 10;
+                heart.style.animationDelay = `${delay}s`;
+                heart.style.animationDuration = `${duration}s`;
+                
+                // Random size
+                const size = 10 + Math.random() * 20;
+                heart.style.fontSize = `${size}px`;
+                
+                // Random color variation
+                const colors = ['#e83e8c', '#6f42c1', '#20c997'];
+                const color = colors[Math.floor(Math.random() * colors.length)];
+                heart.style.color = color;
+                
+                container.appendChild(heart);
             }
-        });
-
-        heart.addEventListener('click', () => {
-            setTimeout(() => {
-                clickButton.style.display = 'block';
-            }, 2000); 
-        });
-
-        function redirect() {
-            window.location.href = 'letter.html'; 
-       }
+        }
+        
+        // Initialize
+        window.onload = function() {
+            createHearts();
+            
+            // Get elements
+            const playBtn = document.getElementById('play-song');
+            const birthdaySong = document.getElementById('birthday-song');
+            const continueBtn = document.getElementById('continue-btn');
+            const birthdaySection = document.getElementById('birthday-section');
+            const mainContent = document.getElementById('main-content');
+            
+            // Play birthday song
+            playBtn.addEventListener('click', function() {
+                if (birthdaySong.paused) {
+                    birthdaySong.play();
+                    playBtn.innerHTML = '<i class="fas fa-pause"></i> Pause Song';
+                } else {
+                    birthdaySong.pause();
+                    playBtn.innerHTML = '<i class="fas fa-music"></i> Play Birthday Song';
+                }
+            });
+            
+            // Continue to main content
+            continueBtn.addEventListener('click', function() {
+                birthdaySection.style.display = 'none';
+                mainContent.style.display = 'block';
+            });
+            
+            // Blow out candles effect
+            const flames = document.querySelectorAll('.flame');
+            flames.forEach(flame => {
+                flame.addEventListener('click', function() {
+                    this.style.animation = 'none';
+                    this.style.transform = 'scale(0)';
+                    this.style.opacity = '0';
+                    setTimeout(() => {
+                        this.style.display = 'none';
+                    }, 300);
+                });
+            });
+        };
     </script>
 </body>
 </html>
